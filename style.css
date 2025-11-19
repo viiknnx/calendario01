@@ -1,0 +1,107 @@
+:root {
+    --card-bg: #fff;
+    --text-color: #000;
+    --light-gray: #e0e0e0;
+    --dark-highlight: #000;
+    --highlight-text: #fff;
+    --border-radius: 16px;
+    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: #f0f0f000; /* Fundo levemente cinza */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.calendar-card {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Sombra suave */
+    width: 300px;
+    color: var(--text-color);
+}
+
+/* Cabeçalho do Calendário */
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.nav-arrow {
+    cursor: pointer;
+    font-size: 20px;
+    line-height: 1;
+    padding: 5px;
+    user-select: none; /* Não permite seleção de texto */
+}
+
+/* Dias da Semana (Mo, Tu, We...) */
+.weekdays, .days-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+}
+
+.weekdays {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 10px 0;
+    font-size: 12px;
+    color: #888;
+}
+
+.weekdays li {
+    font-weight: 500;
+    padding: 5px 0;
+}
+
+/* Dias do Mês */
+.days-grid {
+    font-size: 14px;
+}
+
+.days-grid div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Garante que os dias sejam quadrados */
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 2px 0;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+/* Estilo para dias de meses adjacentes (opcional, para clarear) */
+.days-grid .prev-date, 
+.days-grid .next-date {
+    color: #b0b0b0;
+}
+
+/* Destaque do dia selecionado (como o dia 10 na sua imagem) */
+.days-grid .selected-day {
+    background-color: var(--dark-highlight);
+    color: var(--highlight-text);
+    font-weight: 600;
+}
+
+/* Estilo de hover simples */
+.days-grid div:not(.selected-day):hover {
+    background-color: var(--light-gray);
+}
+
+/* Estilo para dias vazios (preenchimento da grade) */
+.days-grid .empty {
+    cursor: default;
+    background: none;
+}
